@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "vpc" {
-  source                              = "git::https://github.com/opsstation/terraform-aws-vpc.git?ref=v1.0.0"
+  source                              = "git::https://github.com/yadavprakash/terraform-aws-vpc.git?ref=v1.0.0"
   name                                = "app"
   environment                         = "test"
   cidr_block                          = "10.0.0.0/16"
@@ -15,7 +15,7 @@ module "vpc" {
 }
 
 module "subnet" {
-  source             = "git::https://github.com/opsstation/terraform-aws-subnet.git?ref=v1.0.0"
+  source             = "git::https://github.com/yadavprakash/terraform-aws-subnet.git?ref=v1.0.0"
   name               = "app"
   environment        = "test"
   availability_zones = ["ap-south-1a", "ap-south-1b", "ap-south-1c"]
@@ -50,7 +50,7 @@ module "memcached" {
   subnet_ids                               = module.subnet.public_subnet_id
   availability_zones                       = ["ap-south-1a", "ap-south-1b"]
   extra_tags = {
-    Application = "opsstation"
+    Application = "yadavprakash"
   }
 
   route53_record_enabled         = false
@@ -61,3 +61,4 @@ module "memcached" {
   route53_zone_id                = "SERFxxxx6XCsY9Lxxxxx"
 
 }
+

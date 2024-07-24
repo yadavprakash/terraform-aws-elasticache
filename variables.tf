@@ -12,7 +12,7 @@ variable "tags" {
 
 variable "repository" {
   type        = string
-  default     = "https://github.com/opsstation/terraform-aws-elasticache"
+  default     = "https://github.com/yadavprakash/terraform-aws-elasticache"
   description = "Terraform current module repo"
 
   validation {
@@ -36,7 +36,7 @@ variable "label_order" {
 variable "managedby" {
   type        = string
   default     = ""
-  description = "ManagedBy, eg  'opsstation'."
+  description = "ManagedBy, eg  'yadavprakash'."
 }
 
 variable "enable" {

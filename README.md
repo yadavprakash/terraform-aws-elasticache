@@ -18,7 +18,7 @@ This Terraform module creates structured elasticache for aws resources with spec
 Example:memcached
 ```hcl
 module "memcached" {
-  source = "git::https://github.com/opsstation/terraform-aws-elasticache.git?ref=v1.0.0"
+  source = "git::https://github.com/yadavprakash/terraform-aws-elasticache.git?ref=v1.0.0"
 
   name        = "memcached"
   environment = "test"
@@ -41,7 +41,7 @@ module "memcached" {
   subnet_ids                               = module.subnet.public_subnet_id
   availability_zones                       = ["eu-west-1a", "eu-west-1b"]
   extra_tags = {
-    Application = "opsstation"
+    Application = "yadavprakash"
   }
 
   route53_record_enabled         = false
@@ -58,7 +58,7 @@ module "memcached" {
 Example:redis
 ```hcl
 module "redis" {
-  source = "git::https://github.com/opsstation/terraform-aws-elasticache.git?ref=v1.0.0"
+  source = "git::https://github.com/yadavprakash/terraform-aws-elasticache.git?ref=v1.0.0"
 
   name        = "redis"
   environment = "test"
@@ -95,7 +95,7 @@ module "redis" {
     }
   ]
   extra_tags = {
-    Application = "opsstation"
+    Application = "yadavprakash"
   }
 
   route53_record_enabled         = false
@@ -110,7 +110,7 @@ module "redis" {
 Example:redis-cluster
 ```hcl
 module "redis-cluster" {
-  source = "git::https://github.com/opsstation/terraform-aws-elasticache.git?ref=v1.0.0"
+  source = "git::https://github.com/yadavprakash/terraform-aws-elasticache.git?ref=v1.0.0"
 
   name        = "redis-cluster"
   environment = "test"
@@ -133,7 +133,7 @@ module "redis-cluster" {
   snapshot_retention_limit    = 7
   automatic_failover_enabled  = true
   extra_tags = {
-    Application = "opsstation"
+    Application = "yadavprakash"
   }
 
 
@@ -154,21 +154,21 @@ Please ensure you specify the correct 'source' path for the module.
 - `environment`: Environment (e.g. `prod`, `dev`, `staging`)..
 - `label_order`: Label order, e.g. `name`,`application`.
 - `enabled`: Enable or disable of elasticache.
-- `managedby`:  ManagedBy, eg 'opsstation'.
+- `managedby`:  ManagedBy, eg 'yadavprakash'.
 - `engine` : The name of the cache engine to be used for the clusters in this replication group. e.g. redis.
 
 ## Module Outputs
 - This module currently does not provide any outputs.
 
 # Examples
-For detailed examples on how to use this module, please refer to the '[example](https://github.com/opsstation/terraform-aws-elasticache/tree/master/example)' directory within this repository.
+For detailed examples on how to use this module, please refer to the '[example](https://github.com/yadavprakash/terraform-aws-elasticache/tree/master/example)' directory within this repository.
 
 ## Authors
 Your Name
 Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/opsstation/terraform-aws-elasticache/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/yadavprakash/terraform-aws-elasticache/blob/master/LICENSE) file for details.
 
 
 
@@ -192,7 +192,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/opsstation/terraform-aws-labels.git | v1.0.0 |
+| <a name="module_labels"></a> [labels](#module\_labels) | git::https://github.com/yadavprakash/terraform-aws-labels.git | v1.0.0 |
 
 ## Resources
 
@@ -256,7 +256,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 | <a name="input_length"></a> [length](#input\_length) | n/a | `number` | `25` | no |
 | <a name="input_log_delivery_configuration"></a> [log\_delivery\_configuration](#input\_log\_delivery\_configuration) | The log\_delivery\_configuration block allows the streaming of Redis SLOWLOG or Redis Engine Log to CloudWatch Logs or Kinesis Data Firehose. Max of 2 blocks. | `list(map(any))` | `[]` | no |
 | <a name="input_maintenance_window"></a> [maintenance\_window](#input\_maintenance\_window) | Maintenance window. | `string` | `"sun:05:00-sun:06:00"` | no |
-| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg  'opsstation'. | `string` | `""` | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg  'yadavprakash'. | `string` | `""` | no |
 | <a name="input_memcached_route53_record_enabled"></a> [memcached\_route53\_record\_enabled](#input\_memcached\_route53\_record\_enabled) | Whether to create Route53 record memcached set. | `bool` | `false` | no |
 | <a name="input_memcached_ssm_parameter_endpoint_enabled"></a> [memcached\_ssm\_parameter\_endpoint\_enabled](#input\_memcached\_ssm\_parameter\_endpoint\_enabled) | Name of the parameter. | `bool` | `false` | no |
 | <a name="input_multi_az_enabled"></a> [multi\_az\_enabled](#input\_multi\_az\_enabled) | Specifies whether to enable Multi-AZ Support for the replication group. If true, automatic\_failover\_enabled must also be enabled. Defaults to false. | `bool` | `false` | no |
@@ -269,7 +269,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 | <a name="input_port"></a> [port](#input\_port) | the port number on which each of the cache nodes will accept connections. | `string` | `""` | no |
 | <a name="input_protocol"></a> [protocol](#input\_protocol) | The protocol. If not icmp, tcp, udp, or all use the. | `string` | `"tcp"` | no |
 | <a name="input_replication_group_description"></a> [replication\_group\_description](#input\_replication\_group\_description) | Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource. | `string` | `"User-created description for the replication group."` | no |
-| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/opsstation/terraform-aws-elasticache"` | no |
+| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/yadavprakash/terraform-aws-elasticache"` | no |
 | <a name="input_retention_in_days"></a> [retention\_in\_days](#input\_retention\_in\_days) | Specifies the number of days you want to retain log events in the specified log group. | `number` | `0` | no |
 | <a name="input_route53_record_enabled"></a> [route53\_record\_enabled](#input\_route53\_record\_enabled) | Whether to create Route53 record set. | `bool` | `false` | no |
 | <a name="input_route53_ttl"></a> [route53\_ttl](#input\_route53\_ttl) | (Required for non-alias records) The TTL of the record. | `string` | `""` | no |
